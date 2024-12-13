@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuarios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addUsuario()">Añadir Usuario</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios">
+      <ion-label>
+        <h2>{{ usuario.nombreUsuario }}</h2>
+        <p>{{ usuario.correo }}</p>
+        <p><strong>Videojuegos:</strong></p>
+        <ul>
+          <li *ngFor="let videojuego of usuario.listaVideojuegos">
+            {{ videojuego.nombre }}
+          </li>
+        </ul>
+      </ion-label>
+      <ion-button color="primary" (click)="editUsuario(usuario)" slot="end">
+        Editar
+      </ion-button>
+      <ion-button color="danger" (click)="deleteUsuario(usuario.id)" slot="end">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

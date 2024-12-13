@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{
+      videojuego ? "Editar Videojuego" : "Nuevo Videojuego"
+    }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="videojuegoForm" (ngSubmit)="saveVideojuego()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de Lanzamiento</ion-label>
+      <ion-input formControlName="fechaLanzamiento" type="date"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Género</ion-label>
+      <ion-input formControlName="genero"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Plataforma</ion-label>
+      <ion-input formControlName="plataforma"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Reseña</ion-label>
+      <ion-textarea formControlName="reseña"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Precio</ion-label>
+      <ion-input formControlName="precio" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Ventas</ion-label>
+      <ion-input formControlName="ventas" type="number"></ion-input>
+    </ion-item>
+
+    <ion-footer>
+      <ion-button
+        expand="full"
+        type="submit"
+        [disabled]="!videojuegoForm.valid"
+      >
+        {{ videojuego ? "Actualizar Videojuego" : "Crear Videojuego" }}
+      </ion-button>
+    </ion-footer>
+  </form>
+</ion-content>

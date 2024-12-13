@@ -1,0 +1,27 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Games & Us</ion-title>
+    </ion-toolbar>
+    <ion-segment value="{{ currentView }}">
+      <ion-segment-button value="usuarios" (click)="showUsuarios()">
+        <ion-label>Usuarios</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="videojuegos" (click)="showVideojuegos()">
+        <ion-label>Videojuegos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-header>
+
+  <ion-content>
+    <!-- Mostrar la lista de usuarios -->
+    <ng-container *ngIf="currentView === 'usuarios'">
+      <app-usuario-list></app-usuario-list>
+    </ng-container>
+
+    <!-- Mostrar la lista de videojuegos -->
+    <ng-container *ngIf="currentView === 'videojuegos'">
+      <app-videojuego-list></app-videojuego-list>
+    </ng-container>
+  </ion-content>
+</ion-app>
